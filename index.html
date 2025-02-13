@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio da Sprint Extra</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Desafio Extra</h1>
+      <h2>Sprint Inglês Técnico e Lógica de Programação</h2>
+    </header>
+    <main>
+      <h6>
+        O aumento nos preços dos combustíveis é algo que tem preocupado muitas
+        famílias na tomada de decisões ao buscar locais onde abastecer. Vamos
+        analisar suas opções?
+      </h6>
+      <br />
+
+      <div class="container one">
+        <form id="need-cons">
+          <h3>Consumo Necessário</h3>
+          <br />
+          <label
+            >Qual a distância percorrida da sua casa até seu trabalho (em
+            Km)?</label
+          >
+          <input type="number" id="distance" min="1" /> <br />
+          <label>Qual o consumo médio do seu veículo (em Km/L)?</label>
+          <input type="number" id="midCons" min="1" />
+        </form>
+
+        <div class="result">
+          <button onclick="calcNeedCons()" id="calc">CALCULAR</button>
+          <p id="pNeedCons"></p>
+        </div>
+      </div>
+      
+      <div class="container two" id="specialContainer">
+        <div id="price-research">
+          <h3>Pesquisa de Preços</h3>
+          <label>Em quantos postos você pesquisou?</label>
+          <input type="number" id="stations" min="1" />
+
+          <div id="inputPrices">
+            <label id="priceQuestion"></label>
+            <input type="number" id="price" min="1" />
+            <button id="arrow" onclick="priceResearch2()"></button>
+          </div>
+        </div>
+
+        <div class="result">
+          <button id="sendBtn" onclick="priceResearch()">ENVIAR</button>
+          <div id="pResult">
+            <p id="nStations"></p>
+            <p id="minPrice"></p>
+            <p id="midPrice"></p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container three">
+        <div id="daily-cost">
+          <h3>Consumo Diário</h3>
+          <label>Qual o consumo necessário do seu veículo (em litros)?</label>
+          <input type="number" id="ncDailyCost" min="1" /> <br />
+          <label>Qual o valor do combustível?</label>
+          <input type="number" id="pDailyCost" min="1" />
+        </div>
+
+        <div class="result">
+          <button onclick="calcDailyCost()" id="calcDC">CALCULAR</button>
+          <p id="paDailyCost"></p>
+        </div>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

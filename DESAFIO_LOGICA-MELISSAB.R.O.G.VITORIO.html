@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio da Sprint</title>
+  </head>
+  <body>
+    <script>
+      // Função responsável por verificar se o valor inserido é realmente um número;
+      function dataFilter (variable, question) {
+          while (variable = "" || isNaN(variable) || variable < 0 || variable === 0) {
+              alert("Não são aceitos valores vazios, negativos ou não numéricos.");
+              variable = parseFloat(prompt(question).replace(",", "."));
+          }
+      }
+
+      // Função responsável por escrever texto na página
+      function textWritter (text) {
+        document.write(text);
+        document.write("<br>");
+      }
+
+      // Pergunta ao usuário a distância percorrida e passa pelo tratamento de dados da função dataFilter 
+      let distance = parseFloat(prompt("Qual a distância percorrida da sua casa até seu trabalho (em Km)?").replace(",", "."));
+      dataFilter(distance, "Qual a distância percorrida da sua casa até seu trabalho (em Km)?");
+
+      // Pergunta ao usuário o consumo médio e passa pelo tratamento de dados da função dataFilter
+      let medCons = parseFloat(prompt("Qual o consumo médio do seu veículo (em Km/L)?").replace(",", "."));
+      dataFilter(medCons, "Qual o consumo médio do seu veículo (em Km/L)?");
+
+      // Calcula o consumo necessário e mostra na tela
+      let needCons = distance / medCons;
+      let lWord = needCons >= 2? "litros" : "litro";
+      textWritter(`<center> O consumo necessário é de ${needCons.toFixed(2)} ${lWord}. <center>`);
+
+      // Pergunta ao usuário o número de postos pesquisados
+      let stations = parseInt(prompt("Em quantos postos você pesquisou?").replace(",", "."));
+      // Verifica se o valor inserido é um número inteiro
+       while ((stations != 0 && isNaN(stations) || stations < 0)) {
+        alert("Não são aceitos valores vazios, negativos ou não numéricos.");
+        stations = parseInt(prompt("Em quantos postos você pesquisou?").replace(",", "."));
+      }
+
+      // Cria uma lista de preços
+      let prices = [];
+
+      // Adiciona cada preço inserido na lista de preços
+      for (let i = 0; i < stations; i++) {
+          let price = parseFloat(prompt(`Digite o valor encontrado no posto ${i+1} (em R$):`).replace(",", "."));
+          dataFilter(price, `Digite o valor encontrado no posto ${i+1} (em R$):`);
+          prices.push(price);
+      }
+
+      // Define o primeiro valor da lista de peços como menor valor
+      let minPrice = prices[0];
+
+      // Percorre toda lista de preços em busca de um valor menor que o anterior
+      for (let i = 0; i < prices.length; i++) {
+          if (prices[i] < minPrice) {
+              minPrice = prices[i];
+          }
+      }
+
+      // Verifica se houveram postos pesquisados
+      if (stations != 0) {
+
+        // Se sim: mostra na tela o menor preço;
+        let rsWord = minPrice >= 2? "reais" : "real";
+        textWritter(`<center> O menor preço é ${minPrice} ${rsWord}, encontrado no posto ${Number(prices.indexOf(minPrice)) + 1}. <center>`);
+        let sum = 0;
+
+        // Soma todos os valores da lista de preços;
+        for (let i = 0; i < prices.length; i++) {
+          sum += parseFloat(prices[i]);
+        }
+
+        // Calcula a média de preços e mostra na página;
+        let midPrice = sum / stations;
+        rsWord = midPrice >= 2? "reais" : "real";
+        textWritter(`<center> A média de preços entre esses postos é de ${midPrice.toFixed(2)} ${rsWord}. <center>`);
+
+        // Calcula o custo diário e mostra na página
+        let dailyCost = 2 * (minPrice * needCons);
+        rsWord = dailyCost >= 2? "reais" : "real";
+        textWritter(`<center> O gasto diário (ida e volta) é de ${dailyCost.toFixed(2)} ${rsWord}. <center>`);
+      } else {
+        // Se não: Exibe mensagem
+        textWritter("<center> Não houveram postos consultados. <center>");
+      }
+
+    </script>
+  </body>
+</html>
