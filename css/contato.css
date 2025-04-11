@@ -76,6 +76,10 @@ form>select:focus-within, form>select:hover {
     color: #565656;
 }
 
+.form__LGPD input {
+    margin: 1vh 0;
+}
+
 .form__btn {
     height: 5vh;
     align-self: flex-end;
