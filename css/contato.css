@@ -70,6 +70,12 @@ form>select:focus-within, form>select:hover {
     display: none;
 }
 
+.form__LGPD {
+    margin: 2vh 0;
+    font-size: 1.5vh;
+    color: #565656;
+}
+
 .form__btn {
     height: 5vh;
     align-self: flex-end;
@@ -84,6 +90,10 @@ form>select:focus-within, form>select:hover {
 
 .form__btn:hover {
     background-color: var(--blue-hover);
+}
+
+.form__btn:disabled {
+    background-color: gray;
 }
 
 @media all and (max-width: 430px) {
@@ -104,7 +114,8 @@ form>select:focus-within, form>select:hover {
         grid-row: 2;
     }
 
-    .main-contact__btn {
-        grid-row: 3;
+    .form__btn {
+        height: 5vh;
+        width: 30vw;
     }
 }
