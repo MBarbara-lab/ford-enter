@@ -4,8 +4,8 @@
     row-gap: 4vh;
     align-items: center;
     justify-content: center;
-    padding: 5vh;
-    flex-grow: 1;
+    height: 100%;
+    flex: 1;
     box-sizing: border-box;
     font-size: 2.15vh;
 }
@@ -25,12 +25,12 @@
 }
 
 .btn-next, .btn-back {
-    width: 30px;
-    height: 30px;
+    display: none;
+    width: 4vh;
+    height: 4vh;
     background-image: url("../img/arrow.png");
     background-size: cover;
     border: none;
-    visibility: hidden;
 }
 
 .btn-back {
@@ -58,12 +58,13 @@
     padding: 1vh;
     border-radius: 10px;
     border: none;
-    width: 15vw;
     font-weight: 500;
     font-size: 1.8vh;
+    justify-self: flex-start;
 }
 
 @media all and (max-width: 430px) {
+    
     .main-home__img {
         width: 90vw;
         height: 30vh;
@@ -74,6 +75,10 @@
     .main-home__text {
         width: 60vw;
         text-align: center;
+    }
+
+    .btn-stop {
+        width: 30vw;
     }
 }
 

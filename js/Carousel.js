@@ -43,8 +43,8 @@ class Carousel {
         const btnStop = document.querySelector(".btn-stop");
         btnStop.addEventListener("click", () => {
             clearInterval(timerCarousel);
-            btnBack.style.visibility = "visible";
-            btnNext.style.visibility = "visible";
+            btnBack.style.display = "flex";
+            btnNext.style.display = "flex";
             btnStop.style.display = "none";
         })
     }
@@ -102,3 +102,5 @@ btnNext.addEventListener("click", () => {
 const btnBack = document.querySelector(".btn-back");
 btnBack.addEventListener("click", () => {
     carousel.back()});
+
+
